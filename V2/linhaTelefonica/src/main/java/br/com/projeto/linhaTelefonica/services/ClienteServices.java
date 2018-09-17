@@ -38,4 +38,9 @@ public class ClienteServices {
 		System.out.println("Removendo o cliente: " + cliente.getNomeCliente());
 		clienteRepository.delete(cliente);
 	}
+	
+	public Cliente alterar(Cliente cliente) throws Exception {
+		clienteRepository.save(cliente);
+		return cliente;
+	}
 }

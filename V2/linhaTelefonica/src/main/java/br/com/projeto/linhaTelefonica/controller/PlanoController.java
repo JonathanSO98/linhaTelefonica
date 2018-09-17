@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,7 +45,7 @@ public class PlanoController {
 		return ResponseEntity.created(location).body(response);
 	}
 
-	@GetMapping
+	@GetMapping(path = "/listar")
 	public ResponseEntity<List<Plano>> listar() {
 		List<Plano> planos = planoService.listar();
 		return ResponseEntity.status(HttpStatus.OK).body(planos);
@@ -60,18 +59,25 @@ public class PlanoController {
 		response.setData(plano);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
-	
+
 	@DeleteMapping(path = "/excluir/{id_plano}")
-	public void excluir(@PathVariable("id_plano") Long idPlano){
-		 planoService.excluir(idPlano);
-	} 
-	
-	@PutMapping(path = "/alterar/{id_plano}")
-	public ResponseEntity<Response<Plano>> alterar(@PathVariable ("id_plano")Long idPlano) {
-		Plano plano = planoService.alterar(idPlano);
-		Response<Plano> response = new Response<Plano>();
-		response.setData(plano);
-		return ResponseEntity.status(HttpStatus.OK).body(response);
+	public void excluir(@PathVariable("id_plano") Long idPlano) {
+		planoService.excluir(idPlano);
 	}
-	
+
+	@PostMapping(path = "/alterar/{id_plano}")
+	public ResponseEntity<Response<Plano>> alterar(@Valid @RequestBody Plano plano, @PathVariable("id_plano") Long idPlano , BindingResult result) throws Exception {
+		plano.setIdPlano(idPlano);
+		Plano planoSalvar = this.planoService.salvar(plano);
+		Response<Plano> response = new Response<Plano>();
+
+		if (result.hasErrors()) {
+			result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
+			return ResponseEntity.badRequest().body(response);
+		}
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id_plano}")
+				.buildAndExpand(plano.getIdPlano()).toUri();
+		response.setData(planoSalvar);
+		return ResponseEntity.created(location).body(response);
+	}
 }

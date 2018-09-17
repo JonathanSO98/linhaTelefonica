@@ -10,7 +10,13 @@ import org.springframework.stereotype.Component;
 import java.io.Serializable;
 
 /*
- * 
+ * Esta classe utiliza as anotações:
+ * Entity informa que a classe é uma entidade
+ * Component
+ * Table define o nome da tabela
+ * Id indentifica a chave primaria
+ * GeneratedValue foi utilizado o IDENTITY para o proprio banco de dados gerar a chave primaria como auto incremeto 
+ * Column permite definir caracteristicas da coluna no banco de dados 
  */
 
 @Entity

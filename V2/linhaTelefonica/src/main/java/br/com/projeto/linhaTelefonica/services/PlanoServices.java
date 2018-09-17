@@ -37,9 +37,8 @@ public class PlanoServices {
 		planoRepository.delete(plano);
 	}
 
-	public Plano alterar(Long idPlano) {
-		Plano plano = planoRepository.findOne(idPlano);
-		System.out.println("Removendo o plano: " + plano.getNomePlano());
-		return planoRepository.saveAndFlush(plano);
+	public Plano alterar(Plano plano) throws Exception {
+		planoRepository.save(plano);
+		return plano;
 	}
 }

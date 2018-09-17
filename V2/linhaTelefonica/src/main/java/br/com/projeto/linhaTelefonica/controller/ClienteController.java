@@ -29,8 +29,7 @@ public class ClienteController {
 	private ClienteServices clienteService;
 
 	@PostMapping(path = "/cadastrar")
-	public ResponseEntity<Response<Cliente>> cadastrar(@Valid @RequestBody Cliente cliente,
-			BindingResult result) {
+	public ResponseEntity<Response<Cliente>> cadastrar(@Valid @RequestBody Cliente cliente, BindingResult result) {
 		Response<Cliente> response = new Response<Cliente>();
 
 		if (result.hasErrors()) {
@@ -45,13 +44,13 @@ public class ClienteController {
 		return ResponseEntity.created(location).body(response);
 	}
 
-	@GetMapping
+	@GetMapping(path = "/listar")
 	public ResponseEntity<List<Cliente>> listar() {
 		List<Cliente> clientes = clienteService.listar();
 		return ResponseEntity.status(HttpStatus.OK).body(clientes);
 	}
 
-	@GetMapping(path = "/{id_cliente}")
+	@GetMapping(path = "buscar/{id_cliente}")
 	public ResponseEntity<Response<Cliente>> buscar(@PathVariable("id_cliente") Long idCliente) throws Exception {
 
 		Cliente cliente = clienteService.buscar(idCliente);
@@ -59,9 +58,26 @@ public class ClienteController {
 		response.setData(cliente);
 		return ResponseEntity.status(HttpStatus.OK).body(response);
 	}
-	
+
 	@DeleteMapping(path = "/excluir/{id_cliente}")
 	public void excluir(@PathVariable("id_cliente") Long idCliente) {
-		 clienteService.excluir(idCliente);
+		clienteService.excluir(idCliente);
+	}
+
+	@PostMapping(path = "/alterar/{id_cliente}")
+	public ResponseEntity<Response<Cliente>> alterar(@Valid @RequestBody Cliente cliente,
+			@PathVariable("id_cliente") Long idCliente, BindingResult result) throws Exception {
+		cliente.setIdCliente(idCliente);
+		Cliente clienteSalvar = this.clienteService.salvar(cliente);
+		Response<Cliente> response = new Response<Cliente>();
+
+		if (result.hasErrors()) {
+			result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
+			return ResponseEntity.badRequest().body(response);
+		}
+		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id_cliente}")
+				.buildAndExpand(cliente.getIdCliente()).toUri();
+		response.setData(clienteSalvar);
+		return ResponseEntity.created(location).body(response);
 	}
 }
