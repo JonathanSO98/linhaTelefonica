@@ -29,13 +29,14 @@ public class ClienteController {
 	private ClienteServices clienteService;
 
 	@PostMapping(path = "/cadastrar")
-	public ResponseEntity<Response<Cliente>> cadastrar(@Valid @RequestBody Cliente cliente, BindingResult result) {
+	public ResponseEntity<Response<Cliente>> cadastrar(@Valid @RequestBody Cliente cliente, BindingResult result) throws Exception {
 		Response<Cliente> response = new Response<Cliente>();
 
 		if (result.hasErrors()) {
 			result.getAllErrors().forEach(error -> response.getErrors().add(error.getDefaultMessage()));
 			return ResponseEntity.badRequest().body(response);
 		}
+		this.clienteService.verificar(cliente);
 
 		Cliente clienteSalvar = this.clienteService.salvar(cliente);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id_cliente}")

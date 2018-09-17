@@ -1,6 +1,7 @@
 package br.com.projeto.linhaTelefonica.entities;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -53,7 +54,7 @@ public class Cliente {
 	private String numLinhaCliente;
 
 	@Column(name = "plano_id", nullable = false)
-	
+
 	private Long planoCliente;
 
 	public Cliente() {
