@@ -1,0 +1,516 @@
+{
+	"id": "397bb7ba-5135-46fa-b8d0-f3f14c3c7c16",
+	"name": "linhaTelefonica",
+	"description": "",
+	"auth": null,
+	"events": null,
+	"variables": [],
+	"order": [
+		"6bec5b9a-0922-4970-82a2-ccaeca2cb9e6",
+		"83653de8-b488-4ccc-8f40-2209e3bff8c0",
+		"800bcb2e-0b9b-42a9-8f4f-35404fbea2f3",
+		"03799115-f896-4cde-b6ba-4ffaf36d3ffa",
+		"6245b106-b4d5-467f-bd8c-6fef7f48180a",
+		"b6608266-bbc8-42d7-a3ad-f2a86fd98823",
+		"9c5e96cb-d557-4b49-a246-321a29a729a2",
+		"158156e3-47b8-4015-adbd-e89b03f9a9b6"
+	],
+	"folders_order": [],
+	"folders": [],
+	"requests": [
+		{
+			"id": "03799115-f896-4cde-b6ba-4ffaf36d3ffa",
+			"name": "DeletarPlano",
+			"url": "localhost:8090/planos/excluir/2",
+			"description": "A API exclui o plano de acordo com o ID solicitado",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "158156e3-47b8-4015-adbd-e89b03f9a9b6",
+			"name": "DeletarCliente",
+			"url": "localhost:8090/clientes/excluir/1",
+			"description": "A API deleta o cliente de acordo com o ID solicitado",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "6245b106-b4d5-467f-bd8c-6fef7f48180a",
+			"name": "CadastarCliente",
+			"url": "localhost:8090/clientes/cadastrar",
+			"description": "A API cadastra o cliente",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"responses": [
+				{
+					"id": "65966422-1e37-4c2f-ba64-562ec0d03fcf",
+					"name": "CadastarClienteResponse",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"data\":{\"idCliente\":1,\"nomeCliente\":\"Cleiton\",\"emailCliente\":\"cleiton@cleiton.com\",\"dataCadCliente\":\"2018-02-15\",\"numLinhaCliente\":\"(11)98765-1234\",\"planoCliente\":1},\"errors\":[]}",
+					"responseCode": {
+						"code": 201,
+						"name": "Created",
+						"detail": "The request has been fulfilled and resulted in a new resource being created."
+					},
+					"requestObject": {
+						"url": "localhost:8090/clientes/cadastrar",
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"data": "{\n\t\"nomeCliente\": \"Cleiton\",\n\t\"emailCliente\": \"cleiton@cleiton.com\",\n\t\"dataCadCliente\": \"2018-02-15\",\n\t\"numLinhaCliente\": \"(11)98765-1234\",\n\t\"planoCliente\": \"1\"\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					},
+					"headers": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Sep 2018 01:54:53 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Location",
+							"value": "http://localhost:8090/clientes/cadastrar/1",
+							"name": "Location",
+							"description": "Used in redirection, or when a new resource has been created."
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"request": "6245b106-b4d5-467f-bd8c-6fef7f48180a",
+					"collection": "397bb7ba-5135-46fa-b8d0-f3f14c3c7c16"
+				}
+			],
+			"rawModeData": "{\n\t\"nomeCliente\": \"Cleiton\",\n\t\"emailCliente\": \"cleiton@cleiton.com\",\n\t\"dataCadCliente\": \"2018-02-15\",\n\t\"numLinhaCliente\": \"(11)98765-1234\",\n\t\"planoCliente\": \"1\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "6bec5b9a-0922-4970-82a2-ccaeca2cb9e6",
+			"name": "CadastrarPlano",
+			"url": "localhost:8090/planos/cadastrar",
+			"description": "A API cadastra o plano.",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": {
+				"type": "noauth"
+			},
+			"events": [],
+			"folder": null,
+			"responses": [
+				{
+					"id": "c1e7394a-7ee0-41b7-b098-bfffc4553145",
+					"name": "CadastrarPlanoResponse",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"data\":{\"idPlano\":1,\"nomePlano\":\"Internet Controle\",\"valorPlano\":69.99,\"quantGbPlano\":7},\"errors\":[]}",
+					"responseCode": {
+						"code": 201,
+						"name": "Created",
+						"detail": "The request has been fulfilled and resulted in a new resource being created."
+					},
+					"requestObject": {
+						"url": "localhost:8090/planos/cadastrar",
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"data": "{\n\t\"nomePlano\": \"Internet Controle\",\n\t\"valorPlano\": \"69.99\",\n\t\"quantGbPlano\": \"7\"\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					},
+					"headers": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Sep 2018 01:51:52 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Location",
+							"value": "http://localhost:8090/planos/cadastrar/1",
+							"name": "Location",
+							"description": "Used in redirection, or when a new resource has been created."
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"request": "6bec5b9a-0922-4970-82a2-ccaeca2cb9e6",
+					"collection": "397bb7ba-5135-46fa-b8d0-f3f14c3c7c16"
+				}
+			],
+			"rawModeData": "{\n\t\"nomePlano\": \"Internet Controle\",\n\t\"valorPlano\": \"69.99\",\n\t\"quantGbPlano\": \"7\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "800bcb2e-0b9b-42a9-8f4f-35404fbea2f3",
+			"name": "AlterarPlano",
+			"url": "localhost:8090/planos/alterar/1",
+			"description": "A API altera o plano de acordo com o ID solicitado",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"responses": [
+				{
+					"id": "ec8a0cb1-e511-42bd-8dea-627d6a6bfccf",
+					"name": "AlterarPlanoResponse",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"data\":{\"idPlano\":1,\"nomePlano\":\"Internet Ilimitada\",\"valorPlano\":89.99,\"quantGbPlano\":5},\"errors\":[]}",
+					"responseCode": {
+						"code": 201,
+						"name": "Created",
+						"detail": "The request has been fulfilled and resulted in a new resource being created."
+					},
+					"requestObject": {
+						"url": "localhost:8090/planos/alterar/1",
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"data": "{\n\t\"nomePlano\": \"Internet Ilimitada\",\n\t\"valorPlano\": \"89.99\",\n\t\"quantGbPlano\": \"5\"\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					},
+					"headers": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Sep 2018 01:54:35 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Location",
+							"value": "http://localhost:8090/planos/alterar/1/1",
+							"name": "Location",
+							"description": "Used in redirection, or when a new resource has been created."
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"request": "800bcb2e-0b9b-42a9-8f4f-35404fbea2f3",
+					"collection": "397bb7ba-5135-46fa-b8d0-f3f14c3c7c16"
+				}
+			],
+			"rawModeData": "{\n\t\"nomePlano\": \"Internet Ilimitada\",\n\t\"valorPlano\": \"89.99\",\n\t\"quantGbPlano\": \"5\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "83653de8-b488-4ccc-8f40-2209e3bff8c0",
+			"name": "ListarPlano",
+			"url": "localhost:8090/planos/listar",
+			"description": "A API lista os planos cadastrado",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": {
+				"type": "noauth"
+			},
+			"events": [],
+			"folder": null,
+			"responses": [
+				{
+					"id": "1d3747c1-1255-4cbe-802a-f327787af03a",
+					"name": "ListarPlanoResponse",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "[{\"idPlano\":1,\"nomePlano\":\"Internet Controle\",\"valorPlano\":69.99,\"quantGbPlano\":7}]",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "localhost:8090/planos/listar",
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Sep 2018 01:54:19 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"request": "83653de8-b488-4ccc-8f40-2209e3bff8c0",
+					"collection": "397bb7ba-5135-46fa-b8d0-f3f14c3c7c16"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		},
+		{
+			"id": "9c5e96cb-d557-4b49-a246-321a29a729a2",
+			"name": "AlterarCliente",
+			"url": "localhost:8090/clientes/alterar/1",
+			"description": "A API altera o cliente de acordo com o ID solicitado",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"responses": [
+				{
+					"id": "63ddef64-d3e7-42f9-9ad7-afc9826ad26c",
+					"name": "AlterarClienteResponse",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "{\"data\":{\"idCliente\":1,\"nomeCliente\":\"Jose\",\"emailCliente\":\"jose@gmail.com\",\"dataCadCliente\":\"2018-02-15\",\"numLinhaCliente\":\"(11)91234-5678\",\"planoCliente\":1},\"errors\":[]}",
+					"responseCode": {
+						"code": 201,
+						"name": "Created",
+						"detail": "The request has been fulfilled and resulted in a new resource being created."
+					},
+					"requestObject": {
+						"url": "localhost:8090/clientes/alterar/1",
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"disabled": false
+							}
+						],
+						"data": "{\n\t\"nomeCliente\": \"Jose\",\n\t\"emailCliente\": \"jose@gmail.com\",\n\t\"dataCadCliente\": \"2018-02-15\",\n\t\"numLinhaCliente\": \"(11)91234-5678\",\n\t\"planoCliente\": \"1\"\n\t\n}",
+						"method": "POST",
+						"dataMode": "raw"
+					},
+					"headers": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Sep 2018 01:55:16 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Location",
+							"value": "http://localhost:8090/clientes/alterar/1/1",
+							"name": "Location",
+							"description": "Used in redirection, or when a new resource has been created."
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"request": "9c5e96cb-d557-4b49-a246-321a29a729a2",
+					"collection": "397bb7ba-5135-46fa-b8d0-f3f14c3c7c16"
+				}
+			],
+			"rawModeData": "{\n\t\"nomeCliente\": \"Jose\",\n\t\"emailCliente\": \"jose@gmail.com\",\n\t\"dataCadCliente\": \"2018-02-15\",\n\t\"numLinhaCliente\": \"(11)91234-5678\",\n\t\"planoCliente\": \"1\"\n\t\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "b6608266-bbc8-42d7-a3ad-f2a86fd98823",
+			"name": "ListarCliente",
+			"url": "localhost:8090/clientes/listar",
+			"description": "A API lista os clientes cadastrado",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": null,
+			"responses": [
+				{
+					"id": "9b1d9023-93a9-4573-9b15-37d7530fedd5",
+					"name": "ListarClienteResponse",
+					"status": "",
+					"mime": "",
+					"language": "json",
+					"text": "[{\"idCliente\":1,\"nomeCliente\":\"Cleiton\",\"emailCliente\":\"cleiton@cleiton.com\",\"dataCadCliente\":\"2018-02-15\",\"numLinhaCliente\":\"(11)98765-1234\",\"planoCliente\":1}]",
+					"responseCode": {
+						"code": 200,
+						"name": "OK",
+						"detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action."
+					},
+					"requestObject": {
+						"url": "localhost:8090/clientes/listar",
+						"pathVariableData": [],
+						"queryParams": [],
+						"headerData": [],
+						"data": null,
+						"method": "GET",
+						"dataMode": "params"
+					},
+					"headers": [
+						{
+							"key": "Content-Type",
+							"value": "application/json;charset=UTF-8",
+							"name": "Content-Type",
+							"description": "The mime type of this content"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Sep 2018 01:55:07 GMT",
+							"name": "Date",
+							"description": "The date and time that the message was sent"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked",
+							"name": "Transfer-Encoding",
+							"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+						}
+					],
+					"cookies": [],
+					"request": "b6608266-bbc8-42d7-a3ad-f2a86fd98823",
+					"collection": "397bb7ba-5135-46fa-b8d0-f3f14c3c7c16"
+				}
+			],
+			"headers": "",
+			"pathVariables": {}
+		}
+	]
+}

@@ -31,12 +31,12 @@ public class ClienteServices {
 		}
 		return cliente;
 	}
-	
+
 	public void excluir(Long idCliente) {
 		Cliente cliente = clienteRepository.findOne(idCliente);
 		clienteRepository.delete(cliente);
 	}
-	
+
 	public Cliente alterar(Cliente cliente) throws Exception {
 		clienteRepository.save(cliente);
 		return cliente;

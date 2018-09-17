@@ -35,26 +35,24 @@ public class Cliente {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCliente;
 
-	@Column(name = "nome_cliente", nullable = false, unique = true)
+	@Column(name = "nome_cliente", nullable = false, unique = false)
 	@NotNull(message = "Nome do Cliente é uma informação obrigatória")
 	
 	private String nomeCliente;
 
-	@Column(name = "email_cliente", nullable = false, unique = true)
-	@NotNull(message = "Email do Cliente é uma informação obrigatória")
+	@Column(name = "email_cliente", nullable = false, unique = false)
 	private String emailCliente;
 
 	@JsonSerialize(using = DateSerializer.class)
 	@Column(name = "data_cad_cliente", nullable = false)
 	private Date dataCadCliente;
 
-	@Column(name = "num_linha_cliente", nullable = false, unique = true)
-	@NotNull(message = "Número do Cliente é uma informação obrigatória")
+	@Column(name = "num_linha_cliente", nullable = false, unique = false)
 	private String numLinhaCliente;
 
 	@Column(name = "plano_id", nullable = false)
-	
 	private Long planoCliente;
+	
 
 	public Cliente() {
 

@@ -19,6 +19,7 @@ public class PlanoServices {
 	}
 
 	public Plano salvar(Plano plano) {
+
 		return planoRepository.save(plano);
 	}
 
@@ -40,4 +41,5 @@ public class PlanoServices {
 		planoRepository.save(plano);
 		return plano;
 	}
+
 }
