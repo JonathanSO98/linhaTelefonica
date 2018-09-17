@@ -32,6 +32,11 @@ public class Cliente {
 
 	private static final long serialVersionUID = -6888542263201514002L;
 
+	/*
+	 * Houve teste com as cardinalidades mas devido erros não foi inserido.
+	 * Houve a possibilidade de ser usado o @Embeddable e @Embedded mas devido a erro não foi inserido.
+	 */
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idCliente;
@@ -54,7 +59,6 @@ public class Cliente {
 	private String numLinhaCliente;
 
 	@Column(name = "plano_id", nullable = false)
-
 	private Long planoCliente;
 
 	public Cliente() {
