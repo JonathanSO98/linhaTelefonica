@@ -46,7 +46,6 @@ public class Cliente {
 
 	@Column(name = "plano_id", nullable = false)
 	private Long planoCliente;
-	
 
 	public Cliente() {
 

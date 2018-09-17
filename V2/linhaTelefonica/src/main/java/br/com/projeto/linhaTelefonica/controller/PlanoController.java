@@ -64,7 +64,8 @@ public class PlanoController {
 	@DeleteMapping(path = "/excluir/{id_plano}")
 	public void excluir(@PathVariable("id_plano") Long idPlano){
 		 planoService.excluir(idPlano);
-	}
+	} 
+	
 	@PutMapping(path = "/alterar/{id_plano}")
 	public ResponseEntity<Response<Plano>> alterar(@PathVariable ("id_plano")Long idPlano) {
 		Plano plano = planoService.alterar(idPlano);

@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.com.projeto.linhaTelefonica.entities.Cliente;
+import br.com.projeto.linhaTelefonica.entities.Cliente;
 import br.com.projeto.linhaTelefonica.repositories.ClienteRepository;
 
 @Service
@@ -30,5 +31,11 @@ public class ClienteServices {
 			throw new Exception("Cliente não cadastrado");
 		}
 		return cliente;
+	}
+	
+	public void excluir(Long idCliente) {
+		Cliente cliente = clienteRepository.findOne(idCliente);
+		System.out.println("Removendo o cliente: " + cliente.getNomeCliente());
+		clienteRepository.delete(cliente);
 	}
 }

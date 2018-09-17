@@ -9,6 +9,10 @@ import javax.persistence.Table;
 import org.springframework.stereotype.Component;
 import java.io.Serializable;
 
+/*
+ * 
+ */
+
 @Entity
 @Component
 @Table(name = "Plano")
